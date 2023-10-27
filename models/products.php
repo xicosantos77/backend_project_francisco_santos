@@ -67,7 +67,46 @@ class Products extends Base{
 			$id
 		]);
 		
-		return $query->fetchAll();
+		return $query->fetch();
+    }
+
+    public function updateStock($item){
+
+        $query = $this->db->prepare("
+            UPDATE
+                products
+            SET
+                stock = stock - ?
+            WHERE
+                product_id = ?
+        ");
+
+        $query->execute([
+            $item["quantity"],
+            $item["product_id"]
+        ]);
+    }
+
+    public function checkStock($item){
+        
+        $query = $this->db->prepare("
+            SELECT
+                product_id,
+                stock
+            FROM
+                products
+            WHERE
+                product_id = ?
+                AND
+                    stock >= ?
+        ");
+
+        $query->execute([
+            $item["product_id"],
+            $item["quantity"]
+        ]);
+
+        return $query->fetch();
     }
 
     public function getRepairById($id){    //faz fetch das reparações por produto selecionado
@@ -79,6 +118,7 @@ class Products extends Base{
             product_repair_prices.repair_cat_id,
             repair_categories.name,
             repair_categories.image,
+            repair_categories.name AS repair_name,
             product_repair_prices.price
         FROM
             products

@@ -19,8 +19,6 @@ if(!empty($url_parts[2])){
     $id = $url_parts[2];      //id da parte em que estamos
 }
 
-//COMEÇA O MVC AQUI
-
 require("controllers/" .$controller. ".php");   
 
 ?>

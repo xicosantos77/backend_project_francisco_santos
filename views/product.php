@@ -11,36 +11,16 @@
 </head>
 <body>
 
-    <header class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <h1>T E L L O</h1>
-                </div>
-                <div class="col-9 d-flex align-items-center justify-content-end">
-                    <div class="row">
-                        <div class="col-6">
-                            <input class="form-control" type="text" placeholder="Pesquisar">
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-dark" type="button" id="search-button">Search</button>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-secondary"><a href="contact.html">Contact</a></button>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-secondary"><a href="login.html">Login</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php require("templates/header.php"); ?>
     
     <nav class="container-fluid header2">
         <ul class="nav row">
             <li class="nav-item col-6">
-                <a href="repairs.html" class="nav-link">REPARAÇÕES</a>
+<?php
+                echo'
+                    <a href="/products/"class="nav-link">MARCAS</a>
+                ';
+?> 
             </li>
             <li class="nav-item col-6">
 <?php
@@ -56,53 +36,40 @@
         <section class="products">
             <div class="container">
                 <h3>Selecione o que procura: </h3>
-                <div class="row">
-<?php
-                foreach($product as $product){
-                    echo'
+                
+                    <div class="row">
                         <div class="col-3 mx-auto">
-                            <img src="'.$product["image"].'" alt="test" class="img-fluid" style="height:200px">
+                            <img src="<?= $product["image"] ?>" alt="test" class="img-fluid" style="height:200px">
                         </div>
                         <div class="col-9 mx-auto text-right">
-                            <p>'.$product["name"].'</p>
-                            <p>'.$product["description"].'</p>
-                            <p>Desde: '.$product["price"].' €</p>
+                            <p> <?= $product["name"] ?> </p>
+                            <p> <?= $product["description"] ?> </p>
+                            <p>Desde: <?= $product["price"] ?> €</p>
                         </div>
                         <div class="col-12 mx-auto text-right">
-                            <button class="btn btn-secondary"> COMPRAR </button>
-                        </div>
-                    ';
-                }
-?>
-                    
-                </div>
+                            <form method="POST" action="/cartproduct/">
+                                <label>
+                                    Quantidade
+                                    <input 
+                                        type="number"
+                                        name="quantity"
+                                        required
+                                        min="1"
+                                        max="<?=$product["stock"]?>"
+                                        value="1"
+                                        style="width: 60px; height: 40px;"
+                                    >
+                                </label>
+                                <input type="hidden" name="product_id" value="<?= $product["product_id"] ?>">
+                                <button type="submit" name="send" class="btn btn-secondary"> COMPRAR </button>
+                            </form>
+                        </div>                 
+                    </div>
+                
             </div>
+        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3>T E L L O</h3>
-                </div>
-                <div class="col-12">
-                    <a href="#">Sobre nós</a>
-                </div>
-                <div class="col-12">
-                    <a href="#">Contactos</a>
-                </div>
-            </div>
-        </div>
-        <div class="container socials">
-            <div class="row">
-                <a href="www.facebook.com" class="col-4">Facebook</a>
-                <a href="www.instagram.com" class="col-4">Instagram</a>
-                <a href="www.linkedin.com" class="col-4">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Include Bootstrap JS and any other scripts you need -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-fH538G3+HbCOaD9cj6DdAAK4bscF6p6ovlMG8v3bR5Cc5d/A6uBkf5jL6P0kq4I5P" crossorigin="anonymous"></script>
+    <?php require("templates/footer.php"); ?>
 </body>
 </html>
