@@ -37,6 +37,18 @@ if( isset($_POST["request"]) ) {
 
         }
     }
+    elseif (
+        $_POST["request"] === "removeRepair" &&
+        !empty($_POST["product_id"]) &&
+        is_numeric($_POST["product_id"]) &&
+        !empty($_POST["repair_cat_id"]) &&
+        is_numeric($_POST["repair_cat_id"]) 
+    ){
+
+        unset($_SESSION["cartrepair"][intval($_POST["product_id"]).":".intval($_POST["repair_cat_id"]) ]);
+        echo '{"message":"OK"}';
+
+    }
 }
 
 ?>

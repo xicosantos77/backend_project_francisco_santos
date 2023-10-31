@@ -110,24 +110,26 @@
                         $subtotal = $item["price"] * $item["quantity"]; 
                         $total = $total + $subtotal; 
             
+                        $_SESSION["cartproduct_value"] = $total;
+
                         echo '
                             <tr data-product_id="' .$item["product_id"]. '">
-                            <td>' .$item["name"]. '</td>
-                            <td>
-                                <input
-                                    type="number"
-                                    name="changeQuantity"
-                                    value="' .$item["quantity"]. '"
-                                    min="1"
-                                    max="' .$item["stock"]. '"
-                                    aria-label="Alterar Quantidade"
-                                >
-                            </td>
-                            <td>' .$item["price"]. '€</td>
-                            <td>' .$subtotal. '€</td>
-                            <td>
-                                <button type="button" name="remove" aria-label="Remover Produto">X</button>
-                            </td>
+                                <td>' .$item["name"]. '</td>
+                                <td>
+                                    <input
+                                        type="number"
+                                        name="changeQuantity"
+                                        value="' .$item["quantity"]. '"
+                                        min="1"
+                                        max="' .$item["stock"]. '"
+                                        aria-label="Alterar Quantidade"
+                                    >
+                                </td>
+                                <td>' .$item["price"]. '€</td>
+                                <td>' .$subtotal. '€</td>
+                                <td>
+                                    <button type="button" name="remove" aria-label="Remover Produto">X</button>
+                                </td>
                             </tr>  
                         '; 
                     }
@@ -142,7 +144,7 @@
             
             <nav class="mt-4">
                 <a class="btn btn-primary" href="/products/">Escolher mais produtos</a>
-                <a class="btn btn-success" href="/checkout/">Finalizar a encomenda</a>
+                <a class="btn btn-success" href="/checkout_products/">Finalizar a encomenda</a>
             </nav>
         </div>
 

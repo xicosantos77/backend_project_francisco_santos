@@ -22,7 +22,7 @@
                             headers: {
                                 "Content-Type":"application/x-www-form-urlencoded"
                             },
-                            body: "request=removeProduct&product_id=" + tr.dataset.product_id
+                            body: "request=removeRepair&product_id=" + tr.dataset.product_id + "&repair_cat_id=" + tr.dataset.repair_cat_id 
                         })
                         .then( response => response.json())
                         .then( result => {
@@ -85,19 +85,21 @@
             
                     foreach($_SESSION["cartrepair"] as $repair){
             
-                        $subtotal = $repair["price"] * $repair["quantity"]; 
+                        $subtotal = $repair["price"]; 
                         $total = $total + $subtotal; 
+
+                        $_SESSION["cartrepair_value"] = $total;
             
                         echo '
-                            <tr data-product_id="' .$repair["product_id"]. '">
+                            <tr data-product_id="' .$repair["product_id"]. '" data-repair_cat_id="'.$repair["repair_cat_id"].'">
                                 <td>' .$repair["product_name"]. '</td>
-                                <td> '.$repair["repair_name"].'</td>
+                                <td> '.$repair["repair_category_name"].'</td>
                                 <td>' .$repair["price"]. '€</td>
                                 <td>' .$subtotal. '€</td>
                                 <td>
                                     <button type="button" name="remove" aria-label="Remover Produto">X</button>
                                 </td>
-                            </tr>  
+                            </tr> 
                         '; 
                     }
                 ?>
@@ -110,8 +112,8 @@
             </table>
             
             <nav class="mt-4">
-                <a class="btn btn-primary" href="/products/">Escolher mais produtos</a>
-                <a class="btn btn-success" href="/checkout/">Finalizar a encomenda</a>
+                <a class="btn btn-primary" href="/repairs/">Escolher mais reparações</a>
+                <a class="btn btn-success" href="/checkout_repairs/">Finalizar o pedido</a>
             </nav>
         </div>
 

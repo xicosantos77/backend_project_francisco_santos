@@ -47,7 +47,6 @@
                         </div>
                         <div>
                             <form method="POST" action="/cartrepair/">
-                                <input type="hidden" name="repair_cat_id" value="<?=$repair["product_name"]?>">
                                 <input type="hidden" name="repair_cat_id" value="<?=$repair["repair_cat_id"]?>">
                                 <input type="hidden" name="product_id" value="<?=$repair["product_id"]?>">
                                 <button type="submit" name="send" class="btn btn-primary">PEDIR</button>

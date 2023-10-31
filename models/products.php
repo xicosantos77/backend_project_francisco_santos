@@ -1,7 +1,5 @@
 <?php
 
-//trabalha com classes de objectos
-
 require_once("base.php");
 
 class Products extends Base{

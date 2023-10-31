@@ -8,6 +8,8 @@ if ( isset($_POST["send"])){
     $model = new Products(); 
     $product = $model -> getProductById($_POST["product_id"]);
 
+    $orderproduct_id = $_POST["order_id"];
+    print_r($orderproduct_id);
     //print_r($product);
     //print_r($_POST["product_id"]);
 
