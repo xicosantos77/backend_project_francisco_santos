@@ -33,8 +33,11 @@
             <div class="col-2 justify-content-end">
                 <p>Bem vindo, <?php print_r($_SESSION["user_name"])?>!</p>
             </div>
+            <div class="col-12 justify-content-start" style="margin-bottom:10px;">
+                <a href="/user_interface/" class="btn btn-secondary">Menu de utilizador</a>
+            </div>
             <div class="col-12 justify-content-start" style="margin-bottom:20px;">
-            <a href="/user_interface/" class="btn btn-secondary">Menu de utilizador</a>
+                <a href="/" class="btn btn-secondary">Página principal</a>
             </div>
 
             <?php if( isset($_SESSION["cartproduct_value"])){ ?>

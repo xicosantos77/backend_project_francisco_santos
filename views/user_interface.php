@@ -13,23 +13,12 @@
     <?php require("templates/header.php"); ?>
 
     <div class="container" style="margin-bottom:100px;">
-        <h1 class="mt-5">Menu de Utilizador</h1>
-<!--
-        <h3 class="mt-5">Por favor, efectue o pagamento:</h3>
-        <dl class="mt-4">
-            <dt class="fw-bold">Número encomenda</dt>
-            <dd><?= $order_id ?></dd>
-            <dt class="fw-bold">Referência de pagamento</dt>
-            <dd><?= $payment_reference ?></dd>
-            <dt class="fw-bold">Total a pagar</dt>
-            <dd><?= $total ?> €</dd>
-        </dl>
+        <h1 class="mt-5" style="margin-bottom:50px;">Menu de Utilizador</h1>
 
-        <form action="/checkout_products/" method="POST">
-            <button type="submit" class="btn btn-primary" name="confirm_payment" id="confirm_payment">Confirmar Pagamento</button>
-            <input type="hidden" name="order_id" value="<?=$order_id?>">
-        </form>
--->
+        <a href="/myorders_user/" class="btn btn-secondary" style="margin-right:20px;">As minhas encomendas</a>
+        <a href="/myrepairs_user/" class="btn btn-secondary" style="margin-right:20px;">As minhas reparações</a>
+        <a href="/user_profile/" class="btn btn-secondary" style="margin-right:20px;">O meu perfil</a>
+        <a href="/" class="btn btn-secondary">Página principal</a>
     </div>
 
     <?php require("templates/footer.php"); ?>

@@ -36,7 +36,7 @@ if( !empty($_SESSION["cartrepair"]) ){
 
 //botao de update de pagamento, confirma se a encomenda está paga pelo cliente
 if (isset($_POST["confirm_order_payment"])) {
-    print_r($_POST);
+    //print_r($_POST);
 
     $modelOrders -> updateStatus("EP", $_POST["repair_order_id"], $_SESSION["user_id"]);
 

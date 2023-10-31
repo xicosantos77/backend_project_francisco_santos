@@ -63,6 +63,7 @@ if(isset($_POST["send"])){
     } else {
         $message = "Preencha os campos correctamente";
     }
+    $_SESSION["user_name"] = $_POST["name"];
 }
  
 

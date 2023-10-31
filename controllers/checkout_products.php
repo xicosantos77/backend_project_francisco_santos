@@ -8,12 +8,7 @@ if( !isset($_SESSION["user_id"])) {
     exit;
 
 }
-/*
-if( empty($_SESSION["cartproduct"]) ) {
-    header("Location: /products/");
-    exit;
-}
-*/
+
 require("models/buyingorders.php");
 require("models/products.php");
 
@@ -41,7 +36,7 @@ if( !empty($_SESSION["cartproduct"]) ){
 
 //botao de update de pagamento, confirma se a encomenda está paga pelo cliente
 if (isset($_POST["confirm_payment"])) {
-    print_r($_POST);
+    //print_r($_POST);
 
     $modelOrders -> updateStatus("EP", $_POST["order_id"], $_SESSION["user_id"]);
 

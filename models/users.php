@@ -24,6 +24,44 @@ class Users extends Base{
         return $query->fetch();
     }
 
+    public function getById($user_id){
+
+        $query = $this->db->prepare("
+            SELECT
+                name,
+                email,
+                street_address,
+                city,
+                postal_code,
+                country,
+                phone
+            FROM
+                users
+            WHERE
+                user_id = ?
+        ");
+
+        $query->execute([
+            $user_id
+        ]);
+
+        return $query->fetch();
+    }
+
+    public function updateField($user_id, $field, $value) {
+        $query = $this->db->prepare("
+            UPDATE 
+                users
+            SET
+                $field = ?
+            WHERE 
+                user_id = ?
+        ");
+
+        $query->execute([$value, $user_id]);
+    }
+
+
     public function create($data){       //$data criada para ser um array e receber toda a info
 
         $api_key = bin2hex(random_bytes(16));
