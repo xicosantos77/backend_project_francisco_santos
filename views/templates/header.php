@@ -63,9 +63,21 @@
             <div class="justify-content-end">
                 <p>Bem vindo administrador, <?php print_r($_SESSION["admin_name"])?>!</p>
             </div>
+            <div class="col-12 justify-content-start" style="margin-bottom:10px;">
+                <a href="/admin_interface/" class="btn btn-secondary">Menu de administrador</a>
+            </div>
+            <div class="col-12 justify-content-start" style="margin-bottom:20px;">
+                <a href="/" class="btn btn-secondary">Página principal</a>
+            </div>
 <?php } else if ( isset($_SESSION["tech_id"])){ ?>
             <div class="justify-content-end">
                 <p>Bem vindo técnico, <?php print_r($_SESSION["tech_name"])?>!</p>
+            </div>
+            <div class="col-12 justify-content-start" style="margin-bottom:10px;">
+                <a href="/tech_interface/" class="btn btn-secondary">Menu de técnico</a>
+            </div>
+            <div class="col-12 justify-content-start" style="margin-bottom:20px;">
+                <a href="/" class="btn btn-secondary">Página principal</a>
             </div>
 <?php } else { ?>
             <div class="justify-content-end">

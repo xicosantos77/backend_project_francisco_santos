@@ -48,17 +48,33 @@ class Users extends Base{
         return $query->fetch();
     }
 
-    public function updateField($user_id, $field, $value) {
+    public function updateUser($data, $user_id) {
+
         $query = $this->db->prepare("
             UPDATE 
                 users
             SET
-                $field = ?
+                name = ?,
+                email = ?,
+                street_address = ?,
+                city = ?,
+                postal_code = ?,
+                country = ?,
+                phone = ?
             WHERE 
                 user_id = ?
         ");
 
-        $query->execute([$value, $user_id]);
+        $query->execute([
+            $data["name"],
+            $data["email"],
+            $data["street_address"],
+            $data["city"],
+            $data["postal_code"],
+            $data["country"],
+            $data["phone"],
+            $user_id
+        ]);
     }
 
 
