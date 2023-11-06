@@ -44,6 +44,15 @@ if (isset($_POST["confirm_payment"])) {
 
 }
 
+//controlador para confirmação de encomenda de "ET" para "OK"
+if (isset($_POST["confirm_reception"])) {
+
+    $modelOrders -> updateStatus("OK", $_POST["order_id"], $_SESSION["user_id"]);
+
+    header("Location:/myorders_user/"); 
+
+}
+
 require("views/checkout_products.php");
 
 ?>

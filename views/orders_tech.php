@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/home/home.css">
-        <title>TELLO - As minhas encomendas</title>
+        <title>TELLO - Todas as encomendas</title>
 </head>
 <body>
     <?php require("templates/header.php"); ?>
@@ -16,6 +16,7 @@
         <table class="table" style="margin-bottom:50px;">
             <thead>
                 <tr>
+                    <th>Cliente</th>
                     <th>ID da encomenda</th>
                     <th>Data de encomenda</th>
                     <th>Data de pagamento</th>
@@ -29,6 +30,7 @@
             <tbody>
                 <?php foreach ($orders as $order) { ?>
                     <tr>
+                        <td><?= $order["client_name"] ?></td>
                         <td><?= $order["order_id"] ?></td>
                         <td><?= $order["order_date"] ?></td>
                         <td><?= $order["payment_date"] ?></td>
@@ -38,27 +40,25 @@
                         <td><?= $order["price_each"] ?></td>
                         <td>
                             <?php if ($order["status"] === "AP") { ?>
-                                <p style="margin-bottom: 10px">Ref. Pagamento:</p>
-                                <p style="margin-bottom: 10px"><?= $order["payment_reference"] ?></p>
-                                <form action="/checkout_products/" method="POST">
-                                    <button type="submit" class="btn btn-primary" name="confirm_payment" id="confirm_payment">Confirmar Pagamento</button>
-                                    <input type="hidden" name="order_id" value="<?= $order["order_id"] ?>">
-                                </form>
-
+                                <p style="margin-bottom: 10px; color:red; font-weight:bold;">AGUARDA PAGAMENTO</p>
                             <?php } elseif ($order["status"] === "EP") { ?>
-                                <p style="margin-bottom: 10px">Em processamento</p>
-
-                            <?php } elseif ($order["status"] === "PE") { ?>
-                                <p style="margin-bottom: 10px">Pronto para envio</p>
-                            
-                            <?php } elseif ($order["status"] === "ET") { ?>
-                                <p style="margin-bottom: 10px;">Aguarda confirmaçao de recepção</p>
-                                <form action="/checkout_products/" method="POST">
-                                    <button type="submit" class="btn btn-success" name="confirm_reception" id="confirm_reception">Confirmar recepçao</button>
+                                <p style="margin-bottom: 10px; color:orange;">PAGAMENTO CONFIRMADO</p>
+                                <form action="/orders_tech/" method="POST">
+                                    <button type="submit" class="btn btn-warning" name="confirm_processing" id="confirm_processing">Confirmar Processamento</button>
                                     <input type="hidden" name="order_id" value="<?= $order["order_id"] ?>">
+                                    <input type="hidden" name="user_id" value="<?= $order["user_id"] ?>">
                                 </form>
-                            <?php } elseif ($order["status"] === "OK") { ?>
-                                <p style="margin-bottom: 10px">Entrega confirmada</p>
+                            <?php } elseif ($order["status"] === "PE"){ ?>
+                                <p style="margin-bottom: 10px; color:green;">PRONTO PARA ENVIO</p>
+                                <form action="/orders_tech/" method="POST">
+                                    <button type="submit" class="btn btn-success" name="confirm_shipping" id="confirm_processing">Confirmar Envio</button>
+                                    <input type="hidden" name="order_id" value="<?= $order["order_id"] ?>">
+                                    <input type="hidden" name="user_id" value="<?= $order["user_id"] ?>">
+                                </form>
+                            <?php } elseif ($order["status"] === "ET"){ ?>
+                                <p style="margin-bottom: 10px; color:grey;"> AGUARDA ENTREGA </p>
+                            <?php } else { ?>
+                                <p style="margin-bottom: 10px; color:green; font-weight:bold;"> ENCOMENDA FINALIZADA </p>
                             <?php } ?>
                         </td>
                     </tr>

@@ -15,9 +15,11 @@
     <div class="container" style="margin-bottom:100px;">
         <h1 class="mt-5" style="margin-bottom:50px;">Menu de Técnico</h1>
 
-        <a href="/orders_tech/" class="btn btn-secondary" style="margin-right:20px;">Consultar encomendas</a>
-        <a href="/repairs_tech/" class="btn btn-secondary" style="margin-right:20px;">Consultar reparações</a>
-        <a href="/tech_profile/" class="btn btn-secondary" style="margin-right:20px;">O meu perfil</a>
+        <a href="/orders_tech/" class="btn btn-secondary" style="margin-right:20px;">Gestão de encomendas</a>
+        <a href="/repairs_tech/" class="btn btn-secondary" style="margin-right:20px;">Gestão de reparações</a>
+        <a href="/manage_stocks/" class="btn btn-secondary" style="margin-right:20px;">Gestão de stocks</a>
+        <a href="/manage_clients/" class="btn btn-secondary" style="margin-right:20px;">Consulta de clientes</a>
+        <a href="/tech_profile/" class="btn btn-secondary" style="margin-right:20px;">Perfil de técnico</a>
         <a href="/" class="btn btn-secondary">Página principal</a>
     </div>
 

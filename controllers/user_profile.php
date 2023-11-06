@@ -15,7 +15,7 @@ foreach($countries as $country){
     $country_codes[] = $country["code"];   
 }
 
-require("models/Users.php");
+require("models/users.php");
 $model = new Users();
 $user_id = $_SESSION["user_id"];
 
