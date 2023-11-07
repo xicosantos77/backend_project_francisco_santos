@@ -54,8 +54,7 @@ class Techs extends Base{
                 technicians
             SET
                 name = ?,
-                email = ?,
-                store_id = (SELECT store_id FROM stores WHERE name = ?)
+                email = ?
             WHERE
                 tech_id = ?
         ");
@@ -63,7 +62,6 @@ class Techs extends Base{
         $query->execute([
             $data["name"],
             $data["email"],
-            $data["store_name"],
             $tech_id
         ]);
     }

@@ -27,11 +27,9 @@ if (isset($_POST["tech_update"])) {
     if(
         isset($_POST["name"]) &&
         isset($_POST["email"]) &&
-        isset($_POST["store_name"]) &&
         mb_strlen($_POST["name"]) >= 3 &&
         mb_strlen($_POST["name"]) <= 60 &&
-        filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
-        in_array($_POST["store_name"], $stores)
+        filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
     ){
         $model->updateTech($_POST, $tech_id);
 

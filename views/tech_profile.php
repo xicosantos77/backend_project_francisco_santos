@@ -44,15 +44,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Loja</th>
-                        <td>
-                            <span><?= $tech["store_name"] ?></span>
-                        </td>
-                        <td>
-                            <input type="text" class="form-control" name="store_name" id="store_name" placeholder="Edite o seu e-mail..." value="<?= $tech["store_name"] ?>">
-                        </td>
-                    </tr>
-                    <tr>
                         <th>Submeter alterações:</th>
                         <td></td>
                         <td>

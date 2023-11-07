@@ -45,6 +45,34 @@ class Products extends Base{
 		return $query->fetchAll();
     }
 
+    public function getAllDetailsByCategory(){
+
+        $query = $this->db->prepare("
+        SELECT 
+            products.product_cat_id,
+            products.product_id,
+            products.name,
+            products.description,
+            products.price,
+            products.stock,
+            products.image,
+            product_categories.name AS category_name
+        FROM
+            products
+        INNER JOIN
+            product_categories
+        ON
+            products.product_cat_id = product_categories.product_cat_id
+        ORDER BY
+            category_name;
+            
+		");
+		
+		$query->execute([]);
+		
+		return $query->fetchAll();
+    }
+
     public function getProductById($id){    //faz fetch dos tipos de produtos
 
         $query = $this->db->prepare("
@@ -82,6 +110,23 @@ class Products extends Base{
         $query->execute([
             $item["quantity"],
             $item["product_id"]
+        ]);
+    }
+
+    public function manageStock($item, $stock){
+
+        $query = $this->db->prepare("
+            UPDATE
+                products
+            SET
+                stock = ?
+            WHERE
+                product_id = ?
+        ");
+
+        $query->execute([
+            $item,
+            $stock
         ]);
     }
 
