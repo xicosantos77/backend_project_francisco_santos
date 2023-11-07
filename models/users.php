@@ -48,6 +48,27 @@ class Users extends Base{
         return $query->fetch();
     }
 
+    public function getAll(){
+
+        $query = $this->db->prepare("
+            SELECT
+                user_id,
+                name,
+                email,
+                street_address,
+                city,
+                postal_code,
+                country,
+                phone
+            FROM
+                users
+        ");
+
+        $query->execute([]);
+
+        return $query->fetchAll();
+    }
+
     public function updateUser($data, $user_id) {
 
         $query = $this->db->prepare("
