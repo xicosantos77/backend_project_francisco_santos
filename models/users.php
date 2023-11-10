@@ -64,7 +64,7 @@ class Users extends Base{
                 users
         ");
 
-        $query->execute([]);
+        $query->execute();
 
         return $query->fetchAll();
     }

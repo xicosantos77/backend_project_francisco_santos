@@ -1,5 +1,11 @@
 <?php
 
+if( !isset($_SESSION["tech_id"])) {
+
+    header("Location: /login/");
+    exit;
+}
+
 require("models/products.php"); 
 //faz o display de todos os produtos
 $model = new Products(); 

@@ -11,7 +11,7 @@
     <?php require("templates/header.php"); ?>
 
     <div class="container">
-        <h1 class="mt-5">Encomendas</h1>
+        <h1 class="mt-5">Encomendas - Menu de Administrador</h1>
 
         <table class="table" style="margin-bottom:50px;">
             <thead>
