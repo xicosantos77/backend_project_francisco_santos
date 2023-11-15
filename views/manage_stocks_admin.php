@@ -40,7 +40,7 @@
                         <td><?= $product["name"] ?></td>
                         <td><?= $product["stock"] ?> Un.</td>
                         <td>
-                            <form action="/manage_stocks/" method="POST">
+                            <form action="/manage_stocks_admin/" method="POST">
                                 <input type="number" name="stock_amount" id="stock_amount" placeholder="<?= $product["stock"]?>">
                                 <button type="submit" class="btn btn-secondary" name="update_stock" id="update_stock" style="margin-left:10px;">Atualizar</button>
                                 <input type="hidden" name="product_id" value="<?= $product["product_id"] ?>">

@@ -98,7 +98,6 @@ class Users extends Base{
         ]);
     }
 
-
     public function create($data){       //$data criada para ser um array e receber toda a info
 
         $api_key = bin2hex(random_bytes(16));

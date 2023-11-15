@@ -144,6 +144,19 @@ class BuyingOrders extends Base{
             $user_id
         ]);
     }
+
+    public function deleteOrder($order_id, $user_id){
+        $query = $this->db->prepare("
+            DELETE FROM 
+                buyingorders
+            WHERE 
+                order_id = ? 
+                AND 
+                user_id = ?
+        ");
+
+    $query->execute([$order_id, $user_id]);
+    }
 }
 
 ?>

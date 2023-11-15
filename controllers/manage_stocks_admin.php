@@ -1,7 +1,6 @@
 <?php
 
 if( !isset($_SESSION["admin_id"])) {
-
     header("Location: /login/");
     exit;
 }
@@ -9,7 +8,7 @@ if( !isset($_SESSION["admin_id"])) {
 require("models/products.php"); 
 //faz o display de todos os produtos
 $model = new Products(); 
-$products = $model->getAllDetailsByCategory([]);
+
 
 //faz a atualização do stock
 
@@ -19,20 +18,12 @@ if(isset($_POST["update_stock"])){
     $stock = $_POST["stock"];
     $stock_amount = $_POST["stock_amount"];
     
-    
-    print_r($product_id);
-//    print_r($stock);
-    print_r($stock_amount);
-
-    
     $modelStocks = new Products();
     $stocks = $modelStocks->manageStock($product_id, $stock_amount);
     
-
-    ("Location:/manage_stocks/");
 }
 
+$products = $model->getAllDetailsByCategory();
 
-
-require("views/manage_stocks.php");
+require("views/manage_stocks_admin.php");
 ?>

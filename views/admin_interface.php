@@ -16,16 +16,16 @@
         <h1 class="mt-5" style="margin-bottom:50px;">Menu de Administrador</h1>
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Administradores</h4>
-        <a href="/" class="btn btn-secondary">Modificar ou Apagar</a>
-        <a href="/" class="btn btn-secondary">Adicionar</a>
+        <a href="/manage_admins/" class="btn btn-secondary">Modificar ou Apagar</a>
+        <a href="/admin_register/" class="btn btn-secondary">Adicionar</a>
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Técnicos</h4>
-        <a href="/" class="btn btn-secondary">Modificar ou Apagar</a>
-        <a href="/" class="btn btn-secondary">Adicionar</a>
+        <a href="/manage_techs/" class="btn btn-secondary">Modificar ou Apagar</a>
+        <a href="/tech_register/" class="btn btn-secondary">Adicionar</a>
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Clientes</h4>
-        <a href="/" class="btn btn-secondary">Modificar ou Apagar</a>
-        <a href="/" class="btn btn-secondary">Adicionar</a>
+        <a href="/manage_clients_admin/" class="btn btn-secondary">Modificar ou Apagar</a>
+        <a href="/add_clients_admin/" class="btn btn-secondary">Adicionar</a>
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Produtos</h4>
         <a href="/" class="btn btn-secondary">Modificar ou Apagar</a>
@@ -40,7 +40,7 @@
         <a href="/repairs_admin/" class="btn btn-secondary" style="margin-right:20px;">Gestão de reparações</a>
         <a href="/manage_stocks_admin/" class="btn btn-secondary" style="margin-right:20px;">Gestão de stocks</a>
         <a href="/manage_clients_admin/" class="btn btn-secondary" style="margin-right:20px;">Consulta de clientes</a>
-        <a href="/tech_profile/" class="btn btn-secondary" style="margin-right:20px;">Perfil de Administrador</a>
+        <a href="/admin_profile/" class="btn btn-secondary" style="margin-right:20px;">Perfil de Administrador</a>
         <a href="/" class="btn btn-secondary">Página principal</a>
     </div>
 

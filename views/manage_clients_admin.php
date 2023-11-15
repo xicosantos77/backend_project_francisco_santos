@@ -15,33 +15,54 @@
 
     <div class="container">
         <h1 class="mt-5">Consulta de Clientes</h1>
-
-        <table class="table" style="margin-bottom:50px;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Morada</th>
-                    <th>Cidade</th>
-                    <th>Código Postal</th>
-                    <th>Telefone</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $user) { ?>
+        <form action="manage_clients_admin.php" method="POST">
+            <table class="table" style="margin-bottom:50px;">
+                <thead>
                     <tr>
-                        <td><?= $user["user_id"] ?></td>
-                        <td><?= $user["name"] ?></td>
-                        <td><?= $user["email"] ?></td>
-                        <td><?= $user["street_address"] ?></td>
-                        <td><?= $user["city"] ?></td>
-                        <td><?= $user["postal_code"] ?></td>
-                        <td><?= $user["phone"] ?></td>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Morada</th>
+                        <th>Cidade</th>
+                        <th>Código Postal</th>
+                        <th>Telefone</th>
+                        <th>Alterar</th>
+                        <th>Deletar</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user) { ?>
+                        <tr>
+                            <td><?= $user["user_id"] ?></td>
+                            <td>
+                                <input type="text" class="form-control" name="name" id="name" value="<?= $user["name"] ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="email" id="email" value="<?= $user["email"] ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="street_address" id="street_address" value="<?= $user["street_address"] ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="city" id="city" value="<?= $user["city"] ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="postal_code" id="postal_code" value="<?= $user["postal_code"] ?>">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="country" id="country" value="<?= $user["phone"] ?>">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-secondary" name="user_update" value="<?= $user["user_id"] ?>">Alterar</button>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-danger" name="delete_user" value="<?= $user["user_id"] ?>">X</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </form>
     </div>
     <?php require("templates/footer.php"); ?>
 </body>

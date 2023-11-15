@@ -17,7 +17,7 @@ if (isset($_POST["confirm_processing"])) {
 
     $model -> updateStatus("PE", $_POST["order_id"], $_POST["user_id"]);
 
-    header("Location:/orders_tech/"); 
+    header("Location:/orders_admin/"); 
 
 }
 
@@ -26,19 +26,25 @@ if (isset($_POST["confirm_shipping"])) {
 
     $model -> updateStatusForShipping("ET", $_POST["order_id"], $_POST["user_id"]);
 
-    header("Location:/orders_tech/"); 
+    header("Location:/orders_admin/"); 
 
 }
-/*
-//controlador para confirmação de encomenda de "ET" para "OK"
-if (isset($_POST["confirm_shipping"])) {
 
-    $model -> updateStatusForShipping("OK", $_POST["order_id"], $_SESSION["user_id"]);
+if (isset($_POST["confirm_reception"])) {
 
-    header("Location:/orders_tech/"); 
+    $model -> updateStatusForShipping("OK", $_POST["order_id"], $_POST["user_id"]);
+
+    header("Location:/orders_admin/"); 
 
 }
-*/
 
-require("views/orders_tech.php");
+if (isset($_POST["delete_order"])) {
+
+    $model -> deleteOrder($_POST["order_id"], $_POST["user_id"]);
+
+    header("Location:/orders_admin/"); 
+
+}
+
+require("views/orders_admin.php");
 ?>

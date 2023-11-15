@@ -125,8 +125,8 @@ class Products extends Base{
         ");
 
         $query->execute([
-            $item,
-            $stock
+            $stock,
+            $item
         ]);
     }
 
