@@ -15,24 +15,24 @@
 
     <div class="container">
         <h1 class="mt-5">Consulta de Clientes</h1>
-        <form action="manage_clients_admin.php" method="POST">
-            <table class="table" style="margin-bottom:50px;">
-                <thead>
+        <table class="table" style="margin-bottom:50px;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Morada</th>
+                    <th>Cidade</th>
+                    <th>Código Postal</th>
+                    <th>Telefone</th>
+                    <th>Alterar</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user) { ?>
+                    <form action="manage_clients_admin.php" method="POST">
                     <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Morada</th>
-                        <th>Cidade</th>
-                        <th>Código Postal</th>
-                        <th>Telefone</th>
-                        <th>Alterar</th>
-                        <th>Deletar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user) { ?>
-                        <tr>
                             <td><?= $user["user_id"] ?></td>
                             <td>
                                 <input type="text" class="form-control" name="name" id="name" value="<?= $user["name"] ?>">
@@ -50,7 +50,7 @@
                                 <input type="text" class="form-control" name="postal_code" id="postal_code" value="<?= $user["postal_code"] ?>">
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="country" id="country" value="<?= $user["phone"] ?>">
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?= $user["phone"] ?>">
                             </td>
                             <td>
                                 <button type="submit" class="btn btn-secondary" name="user_update" value="<?= $user["user_id"] ?>">Alterar</button>
@@ -58,11 +58,11 @@
                             <td>
                                 <button type="submit" class="btn btn-danger" name="delete_user" value="<?= $user["user_id"] ?>">X</button>
                             </td>
+                        </form>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
-        </form>
     </div>
     <?php require("templates/footer.php"); ?>
 </body>

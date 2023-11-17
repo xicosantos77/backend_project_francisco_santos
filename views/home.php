@@ -52,25 +52,25 @@
                 <h3>Produtos</h3>
                 <div class="row">
                     <div class="col-3">
-                        <a href="">
+                        <a href="/products_detail/32">
                             <img src="../images/index/capas.jpeg" alt="" class="img-fluid">
                             <p class="nav-item">Capas</p>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="">
+                        <a href="/products_detail/26">
                             <img src="../images/index/cabos.jpg" alt="" class="img-fluid">
                             <p>Cabos</p>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="">
+                        <a href="/products_detail/32">
                             <img src="../images/index/peliculas.webp" alt="" class="img-fluid">
-                            <p>Películas</p>
+                            <p>Acessórios</p>
                         </a>
                     </div>
                     <div class="col-3">
-                        <a href="">
+                        <a href="/repairs_by_subcategory/8">
                             <img src="../images/index/smartwatches.webp" alt="" class="img-fluid">
                             <p>Smartwatches</p>
                         </a>

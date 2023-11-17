@@ -25,7 +25,7 @@
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Clientes</h4>
         <a href="/manage_clients_admin/" class="btn btn-secondary">Modificar ou Apagar</a>
-        <a href="/add_clients_admin/" class="btn btn-secondary">Adicionar</a>
+        <a href="/register_clients_admin/" class="btn btn-secondary">Adicionar</a>
 
         <h4 style="margin-bottom: 20px; margin-top: 20px;">Produtos</h4>
         <a href="/" class="btn btn-secondary">Modificar ou Apagar</a>

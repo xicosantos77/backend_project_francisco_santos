@@ -70,7 +70,7 @@ class Users extends Base{
     }
 
     public function updateUser($data, $user_id) {
-
+        echo "chegou aqui";
         $query = $this->db->prepare("
             UPDATE 
                 users
@@ -80,7 +80,6 @@ class Users extends Base{
                 street_address = ?,
                 city = ?,
                 postal_code = ?,
-                country = ?,
                 phone = ?
             WHERE 
                 user_id = ?
@@ -92,7 +91,6 @@ class Users extends Base{
             $data["street_address"],
             $data["city"],
             $data["postal_code"],
-            $data["country"],
             $data["phone"],
             $user_id
         ]);
@@ -124,6 +122,17 @@ class Users extends Base{
         $data["api_key"] = $api_key;
 
         return $data;
+    }
+
+    public function deleteUser($user_id) {
+        $query = $this->db->prepare("
+            DELETE FROM 
+                users
+            WHERE 
+                user_id = ? 
+        ");
+
+        $query->execute([$user_id]);
     }
 }
 
