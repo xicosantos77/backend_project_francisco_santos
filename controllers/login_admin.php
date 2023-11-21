@@ -27,7 +27,7 @@ if( isset($_POST["send"]) ) {
         ) {
             $_SESSION["admin_id"] = $admin["admin_id"];    // inicia a sessao
             $_SESSION["admin_name"] = $admin["name"];
-            header("Location:/");
+            header("Location:/admin_interface/");
         }
         else{
             $message = "Email ou password incorrectos";

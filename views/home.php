@@ -33,6 +33,16 @@
     </nav>
 
     <main>
+
+        <?php
+            if(isset($submessage_error)){
+                echo '<div class="alert alert-danger" role="alert">' . $submessage_error . '</div>';
+            }
+            elseif(isset($submessage_success)){
+                echo '<div class="alert alert-success" role="alert">' . $submessage_success . '</div>';
+            }
+        ?>
+
         <section class="img">
             <img src="../images/index/promo_img.jpg" alt="Promo Image"  class="img-fluid">
         </section>
@@ -83,34 +93,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <a href="">
-                            <img src="../images/icons/reparacoes.png" alt="" class="img-fluid">
+                            <img style="transform:scale(0.7)" src="../images/icons/reparacoes.png" alt="" class="img-fluid">
                             <p>Reparações</p>
-                        </a>
                     </div>
                     <div class="col">
-                        <a href="">
-                            <img src="../images/icons/acessorios.png" alt="" class="img-fluid">
+                            <img style="transform:scale(0.7)" src="../images/icons/acessorios.png" alt="" class="img-fluid">
                             <p>Acessórios</p>
-                        </a>
                     </div>
                     <div class="col">
-                        <a href="">
-                            <img src="../images/icons/recondicionados.png" alt="" class="img-fluid">
+                            <img style="transform:scale(0.7)" src="../images/icons/recondicionados.png" alt="" class="img-fluid">
                             <p>Recondicionados</p>
-                        </a>
                     </div>
                     <div class="col">
-                        <a href="">
-                            <img src="../images/icons/orcamentos.png" alt="" class="img-fluid">
+                            <img style="transform:scale(0.7)" src="../images/icons/orcamentos.png" alt="" class="img-fluid">
                             <p>Orçamentos</p>
-                        </a>
                     </div>
                     <div class="col">
-                        <a href="">
-                            <img src="../images/icons/contactos.png" alt="" class="img-fluid">
+                            <img style="transform:scale(0.7)" src="../images/icons/contactos.png" alt="" class="img-fluid">
                             <p>Contactos</p>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -118,14 +118,12 @@
         <section class="newsletter">
             <div class="container">
                 <h3>Subscreva a nossa newsletter</h3>
-                <div class="">
-                    <div class="subs-form d-flex align-items-center justify-content-center">
-                        <form action="" class="p-5 row">
-                            <input class="form-control mb-3" type="text" placeholder="O seu nome">
-                            <input class="form-control mb-3" type="email" placeholder="O seu email">
-                            <button class="btn btn-secondary mb-3" type="button">Subscribe</button>
-                        </form>
-                    </div>
+                <div class="subs-form d-flex align-items-center justify-content-center">
+                    <form method="POST" action="/subscribe/" class="p-5 row">
+                        <input class="form-control mb-3" name="name" type="text" placeholder="O seu nome">
+                        <input class="form-control mb-3" name="email" type="email" placeholder="O seu email">
+                        <button class="btn btn-secondary mb-3" name="send" id="send" type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
         </section>

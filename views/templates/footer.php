@@ -5,10 +5,7 @@
                 <h3>T E L L O</h3>
             </div>
             <div class="col-12">
-                <a href="#">Sobre nós</a>
-            </div>
-            <div class="col-12">
-                <a href="#">Contactos</a>
+                <a href="/contact/">Contactos</a>
             </div>
         </div>
     </div>

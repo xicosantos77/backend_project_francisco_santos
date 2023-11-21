@@ -5,28 +5,33 @@
                 <h1>T E L L O</h1>
             </div>
             <div class="col-9 d-flex align-items-center justify-content-end">
-                <div class="row">
-                    <div class="col-6">
-                        <input class="form-control" type="text" placeholder="Pesquisar">
+                <form method="GET" action="/search/">
+                    <div class="row">
+                            <div class="col-6">
+                                <input name="search_content" class="form-control" type="text" placeholder="Pesquisar">
+                            </div>
+                        
+                            <div class="col-2">
+                                <button type="submit" name="search" class="btn btn-dark" type="button">Pesquisar</button>
+                            </div>
+
+                        <div class="col-2">
+                            <button style="margin_left:20px;" class="btn btn-secondary"><a href="/contact/">Contact</a></button>
+                        </div>
+                        
+    <?php
+                        if( isset($_SESSION["user_id"])||isset($_SESSION["admin_id"])|| isset($_SESSION["tech_id"])){
+    ?>
+                        <div class="col-2">
+                            <button class="btn btn-secondary"><a href="/logout/">Logout</a></button>
+                        </div>
+    <?php } else { ?>
+                        <div class="col-2">
+                            <button class="btn btn-secondary"><a href="/login/">Login</a></button>
+                        </div>
+    <?php } ?>
                     </div>
-                    <div class="col-2">
-                        <button class="btn btn-dark" type="button" id="search-button">Search</button>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-secondary"><a href="/contact/">Contact</a></button>
-                    </div>
-<?php
-                    if( isset($_SESSION["user_id"])||isset($_SESSION["admin_id"])|| isset($_SESSION["tech_id"])){
-?>
-                    <div class="col-2">
-                        <button class="btn btn-secondary"><a href="/logout/">Logout</a></button>
-                    </div>
-<?php } else { ?>
-                    <div class="col-2">
-                        <button class="btn btn-secondary"><a href="/login/">Login</a></button>
-                    </div>
-<?php } ?>
-                </div>
+                </form>
             </div>
         
 <?php if( isset($_SESSION["user_id"])){ ?>

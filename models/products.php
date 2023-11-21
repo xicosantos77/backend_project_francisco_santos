@@ -179,4 +179,37 @@ class Products extends Base{
 		
 		return $query->fetchAll();
     }
+
+    
+    public function searchProducts($searchContent) {
+        $query = $this->db->prepare("
+            SELECT 
+                products.product_id,
+                products.name,
+                products.description,
+                products.price,
+                products.stock,
+                products.image,
+                product_categories.name AS category_name
+            FROM
+                products
+            JOIN
+                product_categories USING (product_cat_id)
+            WHERE
+                products.name LIKE ?
+                OR products.description LIKE ? 
+            ORDER BY
+                products.product_id DESC
+            LIMIT 20 OFFSET 0
+
+        ");
+    
+        $query->execute([
+            "'%' . $searchContent . '%'",
+            "'%' . $searchContent . '%'"
+        ]);
+    
+        return $query->fetchAll();
+    }
+    
 }

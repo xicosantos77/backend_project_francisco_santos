@@ -27,7 +27,7 @@ if( isset($_POST["send"]) ) {
         ) {
             $_SESSION["tech_id"] = $tech["tech_id"];    // inicia a sessao
             $_SESSION["tech_name"] = $tech["name"];
-            header("Location:/");
+            header("Location:/tech_interface/");
         }
         else{
             $message = "Email ou password incorrectos";

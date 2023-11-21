@@ -2,7 +2,7 @@
 
 //unset($_SESSION["user_id"]);
 
-if (!isset($_SESSION["user_id"]) || !isset($_SESSION["admin_id"])) {
+if (!isset($_SESSION["user_id"])) {
     header("Location: /login/");
     exit;
 }
