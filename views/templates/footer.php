@@ -10,10 +10,11 @@
         </div>
     </div>
     <div class="container socials">
-        <div class="row">
-            <a href="www.facebook.com" class="col-4">Facebook</a>
-            <a href="www.instagram.com" class="col-4">Instagram</a>
-            <a href="www.linkedin.com" class="col-4">LinkedIn</a>
-        </div>
+    <div class="row">
+        <a href="http://www.facebook.com" class="col-4" target="_blank">Facebook</a>
+        <a href="http://www.instagram.com" class="col-4" target="_blank">Instagram</a>
+        <a href="http://www.linkedin.com" class="col-4" target="_blank">LinkedIn</a>
+    </div>
+
     </div>
 </footer>

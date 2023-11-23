@@ -1,7 +1,5 @@
 <?php
 
-//unset($_SESSION["user_id"]);
-
 if (!isset($_SESSION["user_id"])) {
     header("Location: /login/");
     exit;
@@ -30,14 +28,10 @@ if( !empty($_SESSION["cartproduct"]) ){
     unset($_SESSION["cartproduct"]);
 }
 
-//unset( $_SESSION["cartproduct"] );
-
 //botao de update de pagamento, confirma se a encomenda está paga pelo cliente
 if (isset($_POST["confirm_payment"])) {
-    //print_r($_POST);
 
     $modelOrders -> updateStatus("EP", $_POST["order_id"], $_SESSION["user_id"]);
-
     header("Location:/payment_confirmation/"); 
 
 }
@@ -46,7 +40,6 @@ if (isset($_POST["confirm_payment"])) {
 if (isset($_POST["confirm_reception"])) {
 
     $modelOrders -> updateStatus("OK", $_POST["order_id"], $_SESSION["user_id"]);
-
     header("Location:/myorders_user/"); 
 
 }

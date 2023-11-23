@@ -23,7 +23,6 @@ if( isset($_POST["send"]) ) {
         if(
             !empty($tech) &&
             $_POST["password"] = $tech["password"]
-            //password_verify($_POST["password"], $user["password"])  //verifica pass nao encriptada com a encriptada
         ) {
             $_SESSION["tech_id"] = $tech["tech_id"];    // inicia a sessao
             $_SESSION["tech_name"] = $tech["name"];

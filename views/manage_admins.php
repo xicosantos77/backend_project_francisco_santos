@@ -8,7 +8,7 @@
     <!-- Add your custom CSS -->
     <link rel="stylesheet" href="../css/home/home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>TELLO - Gestão de Admins</title>
+    <title>TELLO - Gestão de Administradores</title>
 </head>
 <body>
     <?php require("templates/header.php"); ?>

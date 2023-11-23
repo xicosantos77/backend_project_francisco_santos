@@ -10,8 +10,6 @@ require("models/users.php");
 $model = new Users();
 $users = $model->getAll();
 
-
-
 foreach($_POST as $key => $value){       //sanitizaão de texto para todos os campos
     $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
 }

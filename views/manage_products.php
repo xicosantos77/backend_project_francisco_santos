@@ -6,55 +6,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/home/home.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>TELLO - Pesquisa</title>
+    <title>TELLO - Gestão de Produtos</title>
 </head>
 <body>
     <?php require("templates/header.php"); ?>
 
-    <nav class="container-fluid header2">
-        <ul class="nav row">
-            <li class="nav-item col-6">
-<?php
-                echo'
-                    <a href="/repairs/"class="nav-link">REPARAÇÕES</a>
-                ';
-?>
-            </li>
-            <li class="nav-item col-6">
-<?php
-                echo'
-                    <a href="/"class="nav-link">HOME</a>
-                ';
-?>
-            </li>
-        </ul>
-    </nav>
-
     <div class="container">
-        <h1 class="mt-5">Resultados de pesquisa</h1>
-
-<?php
-        if(isset($message)){
-            echo '<p class="alert alert-danger" role="alert">' . $message . '</p>';
-        }
-?>
-
+        <h1 class="mt-5">Gestão de Produtos</h1>
         <table class="table" style="margin-bottom:50px;">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Categoria</th>
                     <th>Produto</th>
-                    <th>Verificar produto</th>
+                    <th>Categoria</th>
+                    <th>Stock</th>
+                    <th>Atualizar Produto</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($searchResults as $product) { ?>
+                <?php foreach ($products as $product) { ?>
                     <tr>
                         <td><?= $product["product_id"] ?></td>
-                        <td><?= $product["category_name"] ?></td>
                         <td><?= $product["name"] ?></td>
-                        <td>Un.</td>
+                        <td><?= $product["category_name"] ?></td>
+                        <td><?= $product["stock"] ?> Un.</td>
+                        <td>
+                            <form action="/manage_products/" method="POST">
+                                <a class="btn btn-secondary" href="/manage_product/<?= $product["product_id"]; ?>">Modificar</a>
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

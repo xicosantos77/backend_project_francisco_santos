@@ -34,9 +34,6 @@ if (isset($_POST["send"])) {
     }
 }
 
-//unset($_SESSION["cartrepair"]);
-//var_dump($_SESSION["cartrepair"]);
-
 
 // To remove items from the cart
 if (isset($_POST["request"]) && $_POST["request"] === "removeProduct") {

@@ -15,28 +15,6 @@ class Base{
         ]    
     );
     }
-
-    /*
-    public function isValidKey($api_key){
-
-        $query = $this->db->prepare("
-            SELECT
-                user_id
-            FROM
-                users
-            WHERE
-                api_key = ?
-        "); 
-
-        $query->execute([
-            $api_key
-        ]);
-
-        $user = $query->fetch();
-
-        return !empty($user);        //se preenchido = true, se vazio =  false
-    }
-    */
 }
 
 ?>
